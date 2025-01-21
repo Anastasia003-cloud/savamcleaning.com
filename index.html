@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savam Cleaning</title>
+    <img src="images/logo.jpeg" alt="Cleaning service" width="240" height="100">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-image: url('images/header.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(247, 235, 235);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+        header h1 span {
+            display: block;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #00b32d;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 50px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .language-switch {
+            margin: 1rem;
+            text-align: center;
+        }
+        .language-switch button {
+            margin: 0 5px;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .language-switch button:hover {
+            background-color: #0056b3;
+        }
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        
+        /* Centrăm textul în paginile Services, Team și Contact */
+        #services, #team, #contact {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <span style="font-size: 70px;">Savam Cleaning</span>
+            <span style="font-size: 24px;">Reinungsdienst</span>
+        </h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('services')">Services</a>
+        <a href="#" onclick="showPage('team')">Team</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <div class="language-switch">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('de')">Deutsch</button>
+    </div>
+
+    <section>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div id="content-en-home" class="content active">
+                <h2>Welcome to Savam Cleaning Services</h2>
+                <p>We provide professional cleaning services in Berlin.</p>
+                <p>For over 7 years, we have specialized in office and practice cleaning services, ensuring your workspace is always spotless and inviting.</p>
+            </div>
+            <div id="content-de-home" class="content">
+                <h2>Willkommen bei Savam Reinigungsdienst</h2>
+                <p>Wir bieten professionelle Reinigungsdienste in Berlin an.</p>
+                <p>Seit über 7 Jahren haben wir uns auf die Reinigung von Büros und Praxen spezialisiert, damit Ihr Arbeitsplatz immer makellos und einladend ist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <div id="content-en-services" class="content active">
+            <h2>Our Services</h2>
+            <p>We offer residential and commercial cleaning services tailored to your needs.</p>
+        </div>
+        <div id="content-de-services" class="content">
+            <h2>Unsere Dienstleistungen</h2>
+            <p>Wir bieten Reinigungsdienste für Privat- und Geschäftsräume, abgestimmt auf Ihre Bedürfnisse.</p>
+        </div>
+    </div>
+
+    <!-- Team Page -->
+    <div id="team" class="page">
+        <div id="content-en-team" class="content active">
+            <h2>Meet Our Team</h2>
+            <p>Our professional cleaners are dedicated to delivering the best results.</p>
+        </div>
+        <div id="content-de-team" class="content">
+            <h2>Lernen Sie unser Team kennen</h2>
+            <p>Unsere professionellen Reinigungskräfte sind darauf spezialisiert, beste Ergebnisse zu liefern.</p>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div id="content-en-contact" class="content active">
+            <h2>Contact Us</h2>
+            <p>Reach out today for a free consultation or to book a service.</p>
+        </div>
+        <div id="content-de-contact" class="content">
+            <h2>Kontaktieren Sie uns</h2>
+            <p>Kontaktieren Sie uns noch heute für eine kostenlose Beratung oder um einen Service zu buchen.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all content sections
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the content for the selected language
+            document.querySelectorAll(`#content-${lang}-home, #content-${lang}-services, #content-${lang}-team, #content-${lang}-contact`)
+                .forEach(content => content.classList.add('active'));
+        }
+
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(pageElement => {
+                pageElement.classList.remove('active');
+            });
+
+            // Show the selected page
+            document.getElementById(page).classList.add('active');
+        }
+    </script>
+    <a href="index.html"> Savam Cleaning</a>
+
+</body>
+</html>
+
